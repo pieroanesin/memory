@@ -1,2 +1,2 @@
 compile:
-	tsc src/index.ts
+	tsc
