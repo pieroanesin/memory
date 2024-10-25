@@ -1,6 +1,5 @@
-console.log("Hello World");
+document.addEventListener("DOMContentLoaded", () => {
+  const board = document.getElementById("board")!
 
-let a = 1;
-let b = 2;
-let c = a + b;
-console.log(c);
+  board.append('Hello World!')
+})
