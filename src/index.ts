@@ -1,5 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const board = document.getElementById("board")!
+document.addEventListener('DOMContentLoaded', () => {
+  const board = document.getElementById('board')!
 
-  board.append('Hello World!')
+  const card = document.createElement('div')
+  card.classList.add('card')
+
+  board.appendChild(card)
 })

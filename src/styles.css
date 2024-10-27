@@ -1,3 +1,9 @@
 body {
-    color: blue;
+    background-color: lightyellow;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: burlywood;
 }
