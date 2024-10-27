@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const board = document.getElementById('board')!
 
-  const cardValues: string[] = ['cat', 'dog', 'mouse']
+  const cardValues: string[] = ['🐶', '🐱', '🐭', '🐴', '🐨', '🐷', '🐼', '🐵']
 
   cardValues.forEach(value => {
     const card = document.createElement('div')

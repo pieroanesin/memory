@@ -7,4 +7,9 @@ body {
     height: 100px;
     background-color: burlywood;
     margin: 10px;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
