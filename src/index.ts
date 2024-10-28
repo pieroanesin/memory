@@ -4,19 +4,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const cardValues: string[] = ['🐶', '🐱', '🐭', '🐴', '🐨', '🐷', '🐼', '🐵']
   cardValues.push(...cardValues)
-
   cardValues.forEach(value => {
+
     const card = document.createElement('div')
     card.classList.add('card')
     card.dataset.value = value
     card.addEventListener('click', () => {
       flipCard(card)
     })
-
     board.appendChild(card)
+
   })
 
+  let flippedCards: HTMLElement[] = [];
   function flipCard(card: HTMLElement) {
-    card.textContent = card.dataset.value || ''
+    if (flippedCards.length < 2) {
+      card.textContent = card.dataset.value || ''
+      flippedCards.push(card)
+    } else {
+      flippedCards.forEach(card => {
+        card.textContent = ''
+      })
+      flippedCards = []
+    }
   }
 })
