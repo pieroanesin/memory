@@ -2,8 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const board = document.getElementById('board')!
   board.classList.add('board')
 
-  const cardValues: string[] = ['🐶', '🐱', '🐭', '🐴', '🐨', '🐷', '🐼', '🐵']
+  let cardValues: string[] = ['🐶', '🐱', '🐭', '🐴', '🐨', '🐷', '🐼', '🐵']
   cardValues.push(...cardValues)
+  cardValues = shuffle(cardValues)
+
   cardValues.forEach(value => {
     const card = document.createElement('div')
     card.classList.add('card')
@@ -42,3 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 })
+
+// Fisher-Yates shuffle
+function shuffle(array: string[]): string[] {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]]
+  }
+  return array
+}
