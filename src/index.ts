@@ -19,11 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let flippedCards: HTMLElement[] = [];
   function flipCard(card: HTMLElement) {
     if (flippedCards.length < 2) {
+      card.classList.add('flipped')
       card.textContent = card.dataset.value || ''
       flippedCards.push(card)
     } else {
       flippedCards.forEach(card => {
         card.textContent = ''
+        card.classList.remove('flipped')
       })
       flippedCards = []
     }
