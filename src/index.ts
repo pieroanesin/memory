@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }, 1000)
         } else {
           flippedCards = []
+
+          if (board.querySelectorAll('.flipped').length === cardValues.length) {
+            setTimeout(() => alert('Hai vinto!'), 500)
+          }
         }
       }
     }
