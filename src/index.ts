@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const board = document.getElementById('board')!
 
   const cardValues: string[] = ['🐶', '🐱', '🐭', '🐴', '🐨', '🐷', '🐼', '🐵']
+  cardValues.push(...cardValues)
 
   cardValues.forEach(value => {
     const card = document.createElement('div')
