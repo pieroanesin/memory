@@ -12,3 +12,6 @@ This example will be a simple version of the game in which the cards are shuffle
 - programming language: TypeScript
 - markup language: Html
 - style sheet: CSS
+
+### Screenshot
+<img width="470" alt="Screenshot 2024-10-29 at 5 38 03 PM" src="https://github.com/user-attachments/assets/bac8dfab-8be2-46c2-8383-fe1f2d74b80e">
