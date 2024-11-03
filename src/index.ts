@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardValues = shuffle(generateCardValues())
   let flippedCards: HTMLElement[] = []
   let matchedCards: HTMLElement[] = []
+  let score: number = 0
+  const maxScore = 40
 
   cardValues.forEach(value => {
     const card = createCard(value)
@@ -49,12 +51,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const isMatch = firstCard.dataset.value === secondCard.dataset.value
 
     if (isMatch) {
+      increaseScore()
       matchedCards.push(firstCard, secondCard)
       flippedCards = []
-      if (isGameWon()) setTimeout(() => alert('You won!'), 500)
+      if (isGameWon()) setTimeout(() => alert(`You won with a score of ${totalScore()} out of 100!`), 500)
     } else {
+      descraseScore()
       setTimeout(unflipCards, 1000)
     }
+  }
+
+  function increaseScore() {
+    score+=5
+    document.getElementById('score')!.textContent = totalScore().toString()
+  }
+
+  function descraseScore() {
+    score--
+    document.getElementById('score')!.textContent = totalScore().toString()
+  }
+
+  function totalScore(): number {
+    return (score * 100)/maxScore
   }
 
   function isGameWon(): boolean {
