@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const board = setupBoard()
   const cardValues = shuffle(generateCardValues())
   let flippedCards: HTMLElement[] = []
+  let matchedCards: HTMLElement[] = []
 
   cardValues.forEach(value => {
     const card = createCard(value)
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleCardClick(card: HTMLElement) {
-    const canFlipCard = flippedCards.length < 2 && !flippedCards.includes(card)
+    const canFlipCard = flippedCards.length < 2 && !flippedCards.includes(card) && !matchedCards.includes(card)
 
     if (canFlipCard) {
       flipCard(card)
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isMatch = firstCard.dataset.value === secondCard.dataset.value
 
     if (isMatch) {
+      matchedCards.push(firstCard, secondCard)
       flippedCards = []
       if (isGameWon()) setTimeout(() => alert('You won!'), 500)
     } else {
@@ -56,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function isGameWon(): boolean {
-    return board.querySelectorAll('.flipped').length === cardValues.length
+    return matchedCards.length === cardValues.length
   }
 
   function unflipCards() {
